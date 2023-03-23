@@ -1,0 +1,7 @@
+<resources>
+    <string name="title_home">الرئيسية</string>
+    <string name="title_dashboard">لوحة القيادة</string>
+    <string name="title_notifications">الإشعارات</string>
+    <string name="name">حسن رضا محمد حنيف</string>
+    <string name="version">إصدار</string>
+</resources>

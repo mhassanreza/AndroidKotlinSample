@@ -1,0 +1,81 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'org.aaaid.eservices'
+    compileSdkVersion 'android-UpsideDownCake'
+
+    defaultConfig {
+        applicationId "org.aaaid.eservices"
+        minSdk 23
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // Kotlin Support - Target the latest platform features and APIs while also supporting older devices
+    implementation 'androidx.core:core-ktx:1.9.0'
+    // Allows access to new APIs on older API versions of the platform
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    // Constraint Layout - Position and size widgets in a flexible way with relative positioning.
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    // Navigation - Navigation is a framework for navigating between 'destinations' within an Android application that provides a consistent API whether destinations are implemented as Fragments, Activities, or other components.
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+    // LiveData - Lifecycle-aware components perform actions in response to a change in the lifecycle status of another component, such as activities and fragments. These components help you produce better-organized, and often lighter-weight code, that is easier to maintain.
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.0'
+    // Splash Screen - Target the latest platform features and APIs while also supporting older devices.
+    implementation 'androidx.core:core-splashscreen:1.1.0-alpha01'
+    // Retrofit - A type-safe HTTP client for Android and Java
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    // A Retrofit Converter which uses Gson for serialization
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    // Square’s great HTTP client for the JVM, Android, and GraalVM.
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2"
+    // Kotlin Flows - Coroutines support libraries for Kotlin
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    // Dependency injection with Hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    kapt "com.google.dagger:hilt-android-compiler:2.44"
+    // Testing Libraries
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    // Glide is an image-loading library
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
+}
